@@ -1,5 +1,5 @@
 {
-  "name": "vue-ctk-date-time-picker",
+  "name": "@luezu/vue-ctk-date-time-picker",
   "version": "2.6.0",
   "description": "Correção para cks",
   "author": "Louis Mazel <loic.mazuel@chronotruck.com>",

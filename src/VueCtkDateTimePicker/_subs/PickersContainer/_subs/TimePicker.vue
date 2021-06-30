@@ -368,29 +368,28 @@
           return null
         }
       },
- async initPositionView () {
+      initPositionView () {
         this.noScrollEvent = true
         const containers = ['hours', 'minutes']
         if (this.apms) containers.push('apms')
-          
-          await this.$nextTick()
+        setTimeout(() => {
           containers.forEach((container) => {
-          const elem = this.$refs[container][0]
-          if (!elem) return false
-          elem.scrollTop = 0
-          const selected = elem.querySelector(`.time-picker-column-item.active`)
-          if (selected) {
-            const boundsSelected = selected.getBoundingClientRect()
-            const boundsElem = elem.getBoundingClientRect()
-            const timePickerHeight = this.$refs['time-picker'].clientHeight
-            if (boundsSelected && boundsElem) {
-              elem.scrollTop = (28 / 2) + boundsSelected.top - boundsElem.top - timePickerHeight / 2
+            const elem = this.$refs[container][0]
+            elem.scrollTop = 0
+            const selected = elem.querySelector(`.time-picker-column-item.active`)
+            if (selected) {
+              const boundsSelected = selected.getBoundingClientRect()
+              const boundsElem = elem.getBoundingClientRect()
+              const timePickerHeight = this.$refs['time-picker'].clientHeight
+              if (boundsSelected && boundsElem) {
+                elem.scrollTop = (28 / 2) + boundsSelected.top - boundsElem.top - timePickerHeight / 2
+              }
             }
-                      }
-          setTimeout(() => {
-            this.noScrollEvent = false
-          }, 500)
-        })
+            setTimeout(() => {
+              this.noScrollEvent = false
+            }, 500)
+          })
+        }, 0)
       },
       getAvailableHour () {
         const availableHours = this.hours.find((element) => {

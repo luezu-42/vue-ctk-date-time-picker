@@ -84,7 +84,7 @@
     "datepicker",
     "timepicker"
   ],
-  "license": "MIT",
+  "license": "ISC",
   "main": "dist/vue-ctk-date-time-picker.common.js",
   "repository": {
     "type": "git",
